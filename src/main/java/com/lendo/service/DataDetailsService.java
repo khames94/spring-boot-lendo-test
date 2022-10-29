@@ -3,6 +3,7 @@ package com.lendo.service;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
+import java.util.Optional;
 
 import org.apache.catalina.mapper.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +19,9 @@ import com.lendo.model.Post;
 import com.lendo.model.User;
 
 import lombok.SneakyThrows;
+import lombok.extern.log4j.Log4j2;
 
+@Log4j2
 @Service
 public class DataDetailsService {
 
@@ -34,7 +37,7 @@ public class DataDetailsService {
 		URI uri = new URI(baseurl + "/users");
 		ResponseEntity<String> result = restTemplate.getForEntity(uri, String.class);
 		List<User> usersList = mapper.readValue(result.getBody(), new TypeReference<List<User>>(){});
-		System.out.println("users" + result);
+		log.info("==users:" + result);
 		return usersList;
 	}
 
@@ -43,7 +46,7 @@ public class DataDetailsService {
 		URI uri = new URI(baseurl + "/posts");
 		ResponseEntity<String> result = restTemplate.getForEntity(uri, String.class);
 		List<Post> PostList = mapper.readValue(result.getBody(), new TypeReference<List<Post>>(){});
-		System.out.println("Post" + result);
+		log.info("==Posts:" + result);
 		return PostList;
 	}
 	
@@ -52,8 +55,20 @@ public class DataDetailsService {
 		URI uri = new URI(baseurl + "/comments");
 		ResponseEntity<String> result = restTemplate.getForEntity(uri, String.class);
 		List<Comment> PostList = mapper.readValue(result.getBody(), new TypeReference<List<Comment>>(){});
-		System.out.println("Comments" + result);
+		log.info("==Comments:" + result);
 		return PostList;
+	}
+
+	public User findUserById(Long id) throws Exception {
+		
+		List<User>  users=getUsers();
+		
+		Optional<User> matchingObject = users.stream().
+			    filter(user -> user.getId().equals(id)).
+			    findFirst();
+		return matchingObject.get();
+		
+		
 	}
 
 }
