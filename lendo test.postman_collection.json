@@ -7,15 +7,103 @@
 	},
 	"item": [
 		{
-			"name": "get comments",
+			"name": "comments",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJsZW5kb1Rlc3QiLCJleHAiOjE2NjcwODEwMDUsImlhdCI6MTY2NzA2MzAwNX0.IHFne2s-d-_r4LGHgLTS7x9VDHWU_oGeRqajSwWf-QumJLPkqNWCL-UGccgWTOawAT52dXLq_eVtmLm3xBbrIA",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
-				"header": []
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJsZW5kb1Rlc3QiLCJleHAiOjE2NjcwNzg5MzMsImlhdCI6MTY2NzA2MDkzM30.jaUr7Esya4aFBqyRYST6x70KUScnAwCatHdSmkccNv41tC2LK-Zrhu5X3YmAMtW7ryPWSNXvZPTK3AYft37ewQ",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "http://localhost:9090/posts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"posts"
+					]
+				}
 			},
 			"response": []
 		},
 		{
-			"name": "get comments Copy",
+			"name": "getcomommentByPostId",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJsZW5kb1Rlc3QiLCJleHAiOjE2NjcwOTgxMzgsImlhdCI6MTY2NzA4MDEzOH0.9NWUzwx3Ie7CGesvjE038bF-IOnuVR7rYJOLzK5Q2yhKI-ZkDbEOricKGNLX6YxqG4u14SAx43y_3E0pHSk8xg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/comment/1698",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"comment",
+						"1698"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getPost by  user id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJsZW5kb1Rlc3QiLCJleHAiOjE2NjcwOTgxMzgsImlhdCI6MTY2NzA4MDEzOH0.9NWUzwx3Ie7CGesvjE038bF-IOnuVR7rYJOLzK5Q2yhKI-ZkDbEOricKGNLX6YxqG4u14SAx43y_3E0pHSk8xg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/users/931",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"users",
+						"931"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "users",
 			"request": {
 				"auth": {
 					"type": "bearer",
@@ -38,6 +126,35 @@
 					"port": "9090",
 					"path": [
 						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "posts",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJsZW5kb1Rlc3QiLCJleHAiOjE2NjcwOTU5NzYsImlhdCI6MTY2NzA3Nzk3Nn0.DDzfKOinYV940tqlKGRb2ItmDW2Hp_cfCz09AqR1gaZCpTOUakzpbfufrmR72Szj12wX7CflusyfSAhm6bbybg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/posts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"posts"
 					]
 				}
 			},
